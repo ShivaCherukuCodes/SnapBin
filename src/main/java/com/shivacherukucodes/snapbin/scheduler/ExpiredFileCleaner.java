@@ -25,7 +25,8 @@ public class ExpiredFileCleaner {
     @Value("${file.storage.local-path}")
     private String localStoragePath;
 
-    @Scheduled(cron = "0 0 */3 * * ?", zone = "Asia/Kolkata")
+    // Run this method once a day at 2 AM
+    @Scheduled(cron = "0 0 2 * * *")
     public void cleanExpiredFiles() {
         log.info("Starting expired file cleanup...");
 
